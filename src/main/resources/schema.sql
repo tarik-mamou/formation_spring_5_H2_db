@@ -23,6 +23,41 @@
      CONSTRAINT FK_livre_profile FOREIGN KEY (id_profile) REFERENCES profil(id)
   );
 
+-- securite
+CREATE TABLE IF NOT EXISTS  user (
+
+id INT PRIMARY KEY,
+nom         VARCHAR(64) NOT NULL,
+prenom  VARCHAR(64) NOT NULL );
+
+
+CREATE TABLE IF NOT EXISTS  role (
+
+id INT PRIMARY KEY,
+nom         VARCHAR(64) NOT NULL,
+description   VARCHAR(64) );
+
+
+CREATE TABLE IF NOT EXISTS  user_role (
+
+id_user INT,
+id_role INT ,
+
+CONSTRAINT FK_user_role_role FOREIGN KEY (id_role) REFERENCES role(id) ,
+CONSTRAINT FK_user_role_user FOREIGN KEY (id_user) REFERENCES user(id)
+)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
